@@ -1,0 +1,30 @@
+# Boris Milev - Full Stack Developer Portfolio
+# Optimized for search engines and web crawlers
+
+User-agent: *
+Allow: /
+
+# Allow indexing of all content
+Allow: /projects
+Allow: /about
+Allow: /contact
+Allow: /assets/
+Allow: /images/
+Allow: /api/
+
+# Disallow crawling of internal files
+Disallow: /_next/
+Disallow: /api/internal/
+Disallow: /.well-known/
+Disallow: /admin/
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://borismilevdev.com/sitemap.xml
+Sitemap: https://borismilevdev.com/sitemap-projects.xml
+
+# Additional metadata for search engines
+# Portfolio showcases 10+ projects in React Native, Next.js, SwiftUI
+# Technologies: JavaScript, TypeScript, Python, C++, Swift, Node.js
