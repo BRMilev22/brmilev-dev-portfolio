@@ -235,6 +235,17 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* SEO H1 - Static for crawlers */}
+        <h1 style={{ 
+          position: 'absolute', 
+          left: '-9999px', 
+          top: '0',
+          fontSize: '16px',
+          color: 'white'
+        }}>
+          Boris Milev - Full-Stack Developer & Software Engineer from Bulgaria
+        </h1>
+
         {/* Interactive Name & Title */}
         <motion.div
           className="space-y-8 mb-16"
@@ -242,7 +253,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <motion.h1 
+          <motion.div 
             className="text-6xl md:text-8xl font-bold leading-tight flex flex-col items-center"
             style={{ 
               fontFamily: currentTheme.typography.fontFamily,
@@ -273,7 +284,7 @@ export default function Hero() {
             >
               BORIS MILEV
             </motion.span>
-          </motion.h1>
+          </motion.div>
           
           {/* Dynamic Role Display */}
           <motion.div 

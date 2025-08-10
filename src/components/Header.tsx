@@ -58,17 +58,21 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.button
+              <motion.a
                 key={item.name}
+                href={item.href}
                 className="text-white/80 hover:text-cyber-blue transition-colors duration-300 font-medium"
-                onClick={() => scrollToSection(item.href)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection(item.href)
+                }}
                 whileHover={{ y: -2 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 {item.name}
-              </motion.button>
+              </motion.a>
             ))}
           </div>
 
@@ -94,16 +98,20 @@ export default function Header() {
         >
           <div className="pt-4 pb-2 space-y-2">
             {navItems.map((item, index) => (
-              <motion.button
+              <motion.a
                 key={item.name}
+                href={item.href}
                 className="block w-full text-left px-4 py-2 text-white/80 hover:text-cyber-blue hover:bg-white/5 rounded-lg transition-all duration-300"
-                onClick={() => scrollToSection(item.href)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection(item.href)
+                }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : -20 }}
                 transition={{ delay: index * 0.1 }}
               >
                 {item.name}
-              </motion.button>
+              </motion.a>
             ))}
           </div>
         </motion.div>

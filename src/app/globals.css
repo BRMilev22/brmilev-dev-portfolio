@@ -3,17 +3,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Screen reader only content - visible to SEO crawlers but not users */
-.sr-only {
+/* SEO content - minimal styling but visible to crawlers */
+.seo-content {
+  position: fixed;
+  top: -1000px;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  color: transparent;
+  font-size: 1px;
+  line-height: 1;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.seo-content h1, .seo-content h2, .seo-content h3, .seo-content h4 {
+  font-size: 1px;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.seo-content p, .seo-content li, .seo-content a {
+  font-size: 1px;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.seo-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Alternative: Make it barely visible but still detectable */
+.seo-h1 {
   position: absolute !important;
-  width: 1px !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
   height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
+  opacity: 0.01 !important;
+  font-size: 1px !important;
+  color: #000001 !important;
+  background: transparent !important;
   overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
 }
 
 * {

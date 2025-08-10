@@ -316,6 +316,16 @@ export default function Projects() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
         >
+          {/* SEO H2 - Static for crawlers */}
+          <h2 style={{ 
+            position: 'absolute', 
+            left: '-9999px', 
+            top: '0',
+            fontSize: '14px'
+          }}>
+            Software Development Projects Portfolio
+          </h2>
+
           <motion.h2 
             className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
             style={{
