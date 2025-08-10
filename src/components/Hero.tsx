@@ -314,17 +314,32 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.p 
-            className="text-xl max-w-3xl mx-auto leading-relaxed"
-            style={{ color: currentTheme.colors.text + 'CC' }}
+          <motion.div 
+            className="max-w-4xl mx-auto space-y-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            Born April 8th, 2008. Student at VSCPI (Vocational School for Computer Programming and Innovation) 
-            in Burgas, Bulgaria. I prioritize modern UI/UX and create cutting-edge applications 
-            with the latest technologies.
-          </motion.p>
+            <p className="text-xl leading-relaxed" style={{ color: currentTheme.colors.text + 'CC' }}>
+              Born April 8th, 2008. Student at VSCPI (Vocational School for Computer Programming and Innovation) 
+              in Burgas, Bulgaria. I prioritize modern UI/UX and create cutting-edge applications 
+              with the latest technologies.
+            </p>
+            
+            <p className="text-lg leading-relaxed" style={{ color: currentTheme.colors.text + 'BB' }}>
+              Passionate about creating innovative mobile and web applications using Swift, React Native, 
+              Next.js, TypeScript, Python, and Node.js. I specialize in full-stack development with custom 
+              APIs, database design, and modern frontend frameworks. My portfolio includes AI-powered iOS apps, 
+              restaurant reservation systems, environmental reporting platforms, and inventory management solutions.
+            </p>
+            
+            <p className="text-lg leading-relaxed" style={{ color: currentTheme.colors.text + 'BB' }}>
+              I believe in writing clean, maintainable code and delivering user-centered solutions that solve 
+              real-world problems. Whether it&apos;s building custom C++ APIs with Crow framework, creating 
+              SwiftUI interfaces, or developing responsive web applications with Tailwind CSS, I bring creativity 
+              and technical expertise to every project.
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Interactive Stats */}

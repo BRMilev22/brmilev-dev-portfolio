@@ -22,8 +22,7 @@ Disallow: /admin/
 Crawl-delay: 1
 
 # Sitemap locations
-Sitemap: https://borismilevdev.com/sitemap.xml
-Sitemap: https://borismilevdev.com/sitemap-projects.xml
+Sitemap: https://brmilev-dev-portfolio.vercel.app/sitemap.xml
 
 # Additional metadata for search engines
 # Portfolio showcases 10+ projects in React Native, Next.js, SwiftUI

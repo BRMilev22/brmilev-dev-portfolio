@@ -6,42 +6,50 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://borismilevdev.com/</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://brmilev-dev-portfolio.vercel.app/</loc>
+    <lastmod>2025-01-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <!-- Projects Section -->
   <url>
-    <loc>https://borismilevdev.com/#projects</loc>
-    <lastmod>2025-01-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://brmilev-dev-portfolio.vercel.app/#projects</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <!-- About Section -->
   <url>
-    <loc>https://borismilevdev.com/#about</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://brmilev-dev-portfolio.vercel.app/#about</loc>
+    <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Tech Stack Section -->
   <url>
-    <loc>https://borismilevdev.com/#tech-stack</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://brmilev-dev-portfolio.vercel.app/#tech</loc>
+    <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <!-- Contact Section -->
   <url>
-    <loc>https://borismilevdev.com/#contact</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://brmilev-dev-portfolio.vercel.app/#contact</loc>
+    <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- GitHub Stats Section -->
+  <url>
+    <loc>https://brmilev-dev-portfolio.vercel.app/#github-stats</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

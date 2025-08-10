@@ -15,6 +15,7 @@ import LoadingScreen from '@/components/LoadingScreen'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 import GitHubStats from '@/components/GitHubStats'
 import MatrixRain from '@/components/MatrixRain'
+import StructuredData from '@/components/StructuredData'
 import { ThemeProvider, useTheme } from '@/contexts/ThemeContext'
 
 function ThemedContent() {
@@ -53,6 +54,7 @@ function ThemedContent() {
         '--text-transform': currentTheme.typography.textTransform,
         '--letter-spacing': currentTheme.typography.letterSpacing
       } as React.CSSProperties}>
+        <StructuredData type="person" />
         <Header />
         <Hero />
         <About />
