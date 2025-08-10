@@ -243,7 +243,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold leading-tight"
+            className="text-6xl md:text-8xl font-bold leading-tight flex flex-col items-center"
             style={{ 
               fontFamily: currentTheme.typography.fontFamily,
               fontWeight: currentTheme.typography.headingWeight,
@@ -253,25 +253,25 @@ export default function Hero() {
             whileHover={{ scale: 1.02 }}
           >
             <motion.span 
-              className="inline-block"
+              className="block"
               style={{ color: currentTheme.colors.text }}
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              Hi, I'm{' '}
+              HI, I'M
             </motion.span>
             <motion.span 
-              className="text-gradient inline-block cursor-pointer"
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
+              className="text-gradient block cursor-pointer"
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
               whileHover={{ 
                 textShadow: `0 0 20px ${currentTheme.colors.primary}80`,
                 scale: 1.05
               }}
             >
-              Boris Milev
+              BORIS MILEV
             </motion.span>
           </motion.h1>
           

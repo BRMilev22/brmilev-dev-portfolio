@@ -60,7 +60,7 @@ const projects = [
   {
     id: 3,
     title: 'Abandoned Explorer',
-    description: 'Full-stack iOS app and API for discovering abandoned locations. Features real-time chat, groups, and comprehensive backend.',
+    description: 'Full-stack iOS app with custom Node.js API for discovering abandoned locations. Features real-time chat, groups, and comprehensive backend with MySQL database.',
     image: '/projects/abandoned-explorer/images/main-screen.png',
     images: [
       '/projects/abandoned-explorer/images/main-screen.png',
@@ -83,7 +83,7 @@ const projects = [
   {
     id: 4,
     title: 'BookBite',
-    description: 'Restaurant reservation system with C++ backend, Node.js frontend, and native iOS app. Email confirmations and admin panel.',
+    description: 'Restaurant reservation system with custom C++ API (Crow framework + nanodbc for MySQL), Node.js frontend, and native iOS app. Email confirmations and admin panel.',
     image: '/projects/bookbite/images/main-page.png',
     images: [
       '/projects/bookbite/images/main-page.png',
@@ -129,7 +129,7 @@ const projects = [
   {
     id: 6,
     title: 'Tasty',
-    description: 'React Native meal planning app with AI recommendations, barcode scanning, and inventory management. TypeScript and Firebase.',
+    description: 'React Native meal planning app with custom Node.js API, AI recommendations, barcode scanning, and inventory management. TypeScript and Firebase backend.',
     image: '/projects/tasty/images/dashboard.png',
     images: [
       '/projects/tasty/images/dashboard.png',
@@ -148,7 +148,7 @@ const projects = [
   {
     id: 7,
     title: 'ChemEco',
-    description: 'Environmental reporting system with React Native mobile app, Node.js API, and web dashboard. Full localization in Bulgarian.',
+    description: 'Environmental reporting system with React Native mobile app, custom Node.js API, and web dashboard. MySQL database with full localization in Bulgarian.',
     image: '/projects/chemeco/images/main-screen.PNG',
     images: [
       '/projects/chemeco/images/main-screen.PNG',
@@ -185,7 +185,7 @@ const projects = [
   {
     id: 9,
     title: 'AutoDB',
-    description: 'Auto parts inventory management system with React frontend, Node.js backend, and MySQL database. Complete CRUD operations.',
+    description: 'Auto parts inventory management system with React frontend, custom Node.js API backend, and MySQL database. Complete CRUD operations with full inventory tracking.',
     image: '/projects/autodb/images/sc1.png',
     images: [
       '/projects/autodb/images/sc1.png',
@@ -203,7 +203,7 @@ const projects = [
   {
     id: 10,
     title: 'Dragomanski Website',
-    description: 'Modern construction company website built with Next.js, TypeScript, and Tailwind CSS. Responsive design with animations.',
+    description: 'Modern construction company website with Next.js frontend and custom Node.js API backend. TypeScript, Tailwind CSS, responsive design with animations and contact forms.',
     image: '/projects/smdragomanski-website/images/main-page.png',
     images: [
       '/projects/smdragomanski-website/images/main-page.png',

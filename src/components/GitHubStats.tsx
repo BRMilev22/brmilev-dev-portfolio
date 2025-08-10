@@ -36,7 +36,7 @@ const GITHUB_USERNAME = 'BRMilev22'
 export default function GitHubStats() {
   const [githubData, setGithubData] = useState<GitHubData | null>(null)
   const [loading, setLoading] = useState(true)
-  const [totalCommits, setTotalCommits] = useState(342)
+  const [totalCommits, setTotalCommits] = useState(1044)
   const [currentStreak, setCurrentStreak] = useState(23)
 
   // Simulated real GitHub-style data until we can fetch real data
@@ -294,7 +294,7 @@ export default function GitHubStats() {
           <Activity size={20} className="text-cyber-blue" />
           Contribution Activity
           <span className="text-sm text-white/50 ml-auto">
-            {githubData.commits.reduce((sum, day) => sum + day.count, 0)} contributions this year
+            1044 total contributions
           </span>
         </h4>
         
