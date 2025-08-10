@@ -259,7 +259,7 @@ export default function Hero() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              HI, I'M
+              HI, I&apos;M
             </motion.span>
             <motion.span 
               className="text-gradient block cursor-pointer"

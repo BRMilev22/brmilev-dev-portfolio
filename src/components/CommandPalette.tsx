@@ -310,7 +310,7 @@ const commands: Command[] = [
                   <div className="p-8 text-center text-white/50">
                     <Zap size={32} className="mx-auto mb-2 opacity-50" />
                     <div>No commands found</div>
-                    <div className="text-sm">Try searching for "projects" or "contact"</div>
+                    <div className="text-sm">Try searching for &ldquo;projects&rdquo; or &ldquo;contact&rdquo;</div>
                   </div>
                 )}
               </div>

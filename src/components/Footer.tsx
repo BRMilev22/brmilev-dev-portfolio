@@ -103,7 +103,7 @@ export default function Footer() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h3 className="text-xl font-semibold text-white mb-6">Let's Connect</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">Let&apos;s Connect</h3>
             <p className="text-white/70 mb-6">
               Follow me on social media or send me an email to start a conversation.
             </p>

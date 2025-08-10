@@ -57,9 +57,9 @@ export default function About() {
           >
             <div className="space-y-4 text-lg text-white/80 leading-relaxed">
               <p>
-                I'm a passionate <span className="text-cyber-blue font-semibold">Full-Stack Developer</span> currently 
+                I&apos;m a passionate <span className="text-cyber-blue font-semibold">Full-Stack Developer</span> currently 
                 studying at the Vocational School for Computer Programming and Innovation (VSCPI) in Burgas, Bulgaria. 
-                At just 16 years old, I've already built an impressive portfolio of projects spanning mobile, web, and desktop development.
+                At just 16 years old, I&apos;ve already built an impressive portfolio of projects spanning mobile, web, and desktop development.
               </p>
               
               <p>
@@ -70,7 +70,7 @@ export default function About() {
               </p>
               
               <p>
-                When I'm not coding, I'm constantly learning new technologies, contributing to open-source projects, 
+                When I&apos;m not coding, I&apos;m constantly learning new technologies, contributing to open-source projects, 
                 and exploring the latest trends in software development. I believe in the power of 
                 <span className="text-cyber-green font-semibold"> continuous learning</span> and staying ahead of the curve 
                 in this rapidly evolving field.

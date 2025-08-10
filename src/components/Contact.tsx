@@ -75,7 +75,7 @@ export default function Contact() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-cyber-purple mx-auto mb-6" />
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology
+            I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology
           </p>
         </motion.div>
 
@@ -123,11 +123,11 @@ export default function Contact() {
                 <Mail size={32} className="text-white" />
               </div>
               <h3 className="text-3xl font-bold text-gradient mb-4">
-                Let's Work Together
+                Let&apos;s Work Together
               </h3>
               <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-                I'm currently available for freelance work, internships, or full-time opportunities. 
-                Whether you have a project in mind or just want to connect, I'd love to hear from you!
+                I&apos;m currently available for freelance work, internships, or full-time opportunities. 
+                Whether you have a project in mind or just want to connect, I&apos;d love to hear from you!
               </p>
             </motion.div>
 

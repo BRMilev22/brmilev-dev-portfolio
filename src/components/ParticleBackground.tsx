@@ -241,7 +241,7 @@ export default function ParticleBackground() {
     }
     
     resizeCanvas()
-    animate()
+    animate(0)
     
     window.addEventListener('resize', resizeCanvas)
     
@@ -251,7 +251,7 @@ export default function ParticleBackground() {
       if (document.hidden) {
         cancelAnimationFrame(animationFrameId)
       } else {
-        animate()
+        animate(performance.now())
       }
     }
     
