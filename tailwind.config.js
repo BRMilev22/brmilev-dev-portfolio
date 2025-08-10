@@ -22,11 +22,18 @@ module.exports = {
           900: '#0c4a6e',
         },
         cyber: {
-          blue: '#00d4ff',
-          purple: '#8b5cf6',
-          pink: '#ec4899',
+          blue: 'var(--color-primary, #00d4ff)',
+          purple: 'var(--color-secondary, #8b5cf6)',
+          pink: 'var(--color-accent, #ec4899)',
           green: '#10b981',
         },
+        'cyber-blue': 'var(--color-primary, #00d4ff)',
+        'cyber-purple': 'var(--color-secondary, #8b5cf6)',
+        'cyber-pink': 'var(--color-accent, #ec4899)',
+        'cyber-green': '#10b981',
+        'theme-bg': 'var(--color-background, #000000)',
+        'theme-surface': 'var(--color-surface, #0a0a0a)',
+        'theme-text': 'var(--color-text, #ffffff)',
         dark: {
           100: '#1a1a1a',
           200: '#2d2d2d',
@@ -35,9 +42,21 @@ module.exports = {
           500: '#737373',
         }
       },
+      borderRadius: {
+        'theme': 'var(--card-radius, 1rem)',
+      },
+      spacing: {
+        'theme-sm': 'var(--theme-spacing, 1rem)',
+        'theme-md': 'var(--theme-spacing, 1.5rem)',
+        'theme-lg': 'var(--theme-spacing, 2rem)',
+      },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'monospace'],
+        orbitron: ['var(--font-orbitron)', 'Orbitron', 'monospace'],
+        rajdhani: ['var(--font-rajdhani)', 'Rajdhani', 'sans-serif'],
+        righteous: ['var(--font-righteous)', 'Righteous', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

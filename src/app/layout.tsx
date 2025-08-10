@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Orbitron, Rajdhani, Righteous, Poppins } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ 
@@ -10,6 +10,29 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ['latin'],
   variable: '--font-jetbrains-mono'
+})
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron'
+})
+
+const rajdhani = Rajdhani({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-rajdhani'
+})
+
+const righteous = Righteous({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-righteous'
+})
+
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-poppins'
 })
 
 export const metadata: Metadata = {
@@ -115,7 +138,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-black text-white antialiased`}>
+      <body className={`
+        ${inter.variable} 
+        ${jetbrainsMono.variable} 
+        ${orbitron.variable} 
+        ${rajdhani.variable} 
+        ${righteous.variable} 
+        ${poppins.variable} 
+        font-sans bg-black text-white antialiased
+      `}>
         {children}
       </body>
     </html>

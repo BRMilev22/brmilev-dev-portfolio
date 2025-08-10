@@ -130,12 +130,135 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Text gradient */
+/* Text gradient - now dynamic */
 .text-gradient {
-  background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #ec4899 100%);
+  background: var(--effect-gradient, linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #ec4899 100%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Dynamic theme variables */
+:root {
+  --color-primary: #00d4ff;
+  --color-secondary: #8b5cf6;
+  --color-accent: #ec4899;
+  --color-background: #000000;
+  --color-surface: #0a0a0a;
+  --color-text: #ffffff;
+  --effect-glow: drop-shadow(0 0 20px #00d4ff);
+  --effect-particle: #00d4ff;
+  --effect-gradient: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #ec4899 100%);
+}
+
+/* Enhanced theme transitions */
+.theme-transition {
+  transition: 
+    background 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-transition * {
+  transition: 
+    background-color 1s ease,
+    background 1s ease,
+    border-color 0.7s ease,
+    color 0.8s ease,
+    box-shadow 0.5s ease,
+    text-shadow 0.4s ease,
+    font-family 0.3s ease !important;
+}
+
+.theme-transition.transitioning {
+  transition: 
+    background 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-transition.transitioning * {
+  transition: 
+    all 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background 1.5s ease,
+    color 1s ease,
+    font-family 0.4s ease !important;
+}
+
+/* Smooth font family transitions */
+* {
+  font-family: inherit;
+}
+
+/* Theme-specific element transitions */
+.glass,
+.glass-dark {
+  transition: 
+    background 1s ease,
+    backdrop-filter 0.8s ease,
+    border-color 0.6s ease !important;
+}
+
+button,
+.btn,
+[role="button"] {
+  transition: 
+    all 0.3s ease,
+    background 0.8s ease,
+    color 0.6s ease,
+    border-color 0.5s ease !important;
+}
+
+/* 3D Perspective utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+/* Enhanced animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary), 0 0 15px var(--color-primary);
+  }
+  50% { 
+    box-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+  }
+}
+
+@keyframes hologram-shift {
+  0% { transform: translateX(0) skewX(0deg); }
+  25% { transform: translateX(1px) skewX(0.5deg); }
+  50% { transform: translateX(-1px) skewX(-0.5deg); }
+  75% { transform: translateX(0.5px) skewX(0.25deg); }
+  100% { transform: translateX(0) skewX(0deg); }
+}
+
+.hologram-effect {
+  animation: hologram-shift 0.1s infinite alternate;
+}
+
+/* Matrix theme specific styles */
+.matrix-theme {
+  --color-primary: #00ff41;
+  --color-secondary: #008f11;
+  --color-accent: #00ff41;
+  --effect-gradient: linear-gradient(135deg, #00ff41 0%, #008f11 100%);
+}
+
+/* Advanced hover effects */
+.project-card:hover {
+  animation: pulse-neon 2s infinite;
 }
 
 /* Responsive utilities */
@@ -144,6 +267,11 @@ body {
   .glass-dark {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+  }
+  
+  .perspective-1000,
+  .perspective-2000 {
+    perspective: 500px;
   }
 }
 
@@ -169,6 +297,46 @@ body {
 
 .project-image-web {
   background: #1a1a1a;
+}
+
+/* Prevent text selection and improve interactions */
+.project-card {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.project-card * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Smooth transitions for all interactive elements */
+.interactive-element {
+  transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+  will-change: transform;
+}
+
+/* Prevent image dragging */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+/* Allow pointer events only on interactive elements */
+button img,
+[role="button"] img,
+.clickable img {
+  pointer-events: auto;
 }
 
 /* Image gallery navigation */

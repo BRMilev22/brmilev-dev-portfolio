@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState, useMemo } from 'react'
-import { ExternalLink, Github, Smartphone, Globe, Monitor, Database, Play } from 'lucide-react'
+import { ExternalLink, Github, Smartphone, Globe, Monitor, Database, Play, Search, Filter, Zap } from 'lucide-react'
 import { useImagePreloader } from '../hooks/useImagePreloader'
+import { useTheme } from '../contexts/ThemeContext'
+import HolographicCard from './HolographicCard'
 // import Image from 'next/image' // Removed for performance
 
 const projects = [
@@ -231,11 +233,14 @@ const isVideoFile = (url: string) => {
 }
 
 export default function Projects() {
+  const { currentTheme } = useTheme()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  const [searchTerm, setSearchTerm] = useState('')
 
   // Get all unique image URLs for preloading
   const allImageUrls = useMemo(() => {
@@ -250,88 +255,237 @@ export default function Projects() {
   // Preload all images
   const { loadedImages, isLoading: imagesLoading } = useImagePreloader(allImageUrls)
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
+  const filteredProjects = projects.filter(project => {
+    const matchesCategory = selectedCategory === 'All' || project.category === selectedCategory
+    const matchesSearch = searchTerm === '' || 
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()))
+    
+    return matchesCategory && matchesSearch
+  })
 
   return (
-    <section id="projects" className="py-20 px-6 relative">
+    <section id="projects" className="py-20 px-6 relative overflow-hidden">
+      {/* Interactive Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <motion.div
+          className="absolute top-20 right-20 w-32 h-32 rounded-full"
+          style={{ background: currentTheme.effects.gradient }}
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360]
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      </div>
+
       {/* Image preloading indicator */}
       {imagesLoading && (
-        <div className="fixed top-4 right-4 z-50 glass px-4 py-2 rounded-full text-sm text-cyber-blue">
+        <motion.div 
+          className="fixed top-4 right-4 z-50 px-4 py-2 rounded-full text-sm border"
+          style={{
+            background: currentTheme.colors.surface,
+            borderColor: currentTheme.colors.primary + '40',
+            color: currentTheme.colors.primary
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+        >
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 border border-cyber-blue border-t-transparent rounded-full animate-spin"></div>
-            Loading images...
+            <motion.div 
+              className="w-3 h-3 border-2 border-t-transparent rounded-full"
+              style={{ borderColor: currentTheme.colors.primary }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            />
+            Loading amazing projects...
           </div>
-        </div>
+        </motion.div>
       )}
       
       <div className="container mx-auto" ref={ref}>
+        {/* Enhanced Header with Interactive Elements */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            My <span className="text-gradient">Projects</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyber-blue to-cyber-purple mx-auto mb-6" />
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            A showcase of my recent work spanning mobile, web, and desktop applications
-          </p>
+          <motion.h2 
+            className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
+            style={{
+              fontFamily: currentTheme.typography.fontFamily,
+              fontWeight: currentTheme.typography.headingWeight,
+              textTransform: currentTheme.typography.textTransform,
+              letterSpacing: currentTheme.typography.letterSpacing
+            }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <span style={{ color: currentTheme.colors.text }}>My </span>
+            <span className="text-gradient relative">
+              Projects
+              <motion.div
+                className="absolute -bottom-4 left-0 right-0 h-1 rounded-full"
+                style={{ background: currentTheme.effects.gradient }}
+                initial={{ scaleX: 0 }}
+                animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              />
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl max-w-3xl mx-auto leading-relaxed mb-8"
+            style={{ color: currentTheme.colors.text + 'CC' }}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            🚀 A showcase of innovative solutions spanning mobile, web, and desktop applications. 
+            Each project represents hours of passion, learning, and crafting digital experiences.
+          </motion.p>
+
+          {/* Interactive Search Bar */}
+          <motion.div
+            className="max-w-md mx-auto mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            <div className="relative">
+              <Search 
+                size={20} 
+                className="absolute left-4 top-1/2 transform -translate-y-1/2"
+                style={{ color: currentTheme.colors.primary }}
+              />
+              <input
+                type="text"
+                placeholder="Search projects, technologies..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 transition-all duration-300 focus:outline-none"
+                style={{
+                  background: currentTheme.colors.surface,
+                  borderColor: searchTerm ? currentTheme.colors.primary : currentTheme.colors.border + '40',
+                  color: currentTheme.colors.text,
+                  boxShadow: searchTerm ? `0 0 20px ${currentTheme.colors.primary}30` : 'none'
+                }}
+              />
+              {searchTerm && (
+                <motion.div
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                  onClick={() => setSearchTerm('')}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <span style={{ color: currentTheme.colors.primary }}>✕</span>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
         </motion.div>
 
-        {/* Category Filter */}
+        {/* Interactive Category Filter */}
         <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-6 mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
         >
-          {categories.map((category, index) => (
-            <motion.button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'bg-gradient-to-r from-cyber-blue to-cyber-purple text-white'
-                  : 'glass text-white/70 hover:text-cyber-blue'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-            >
-              {category}
-            </motion.button>
-          ))}
+          {categories.map((category, index) => {
+            const isActive = selectedCategory === category
+            const projectCount = category === 'All' ? projects.length : projects.filter(p => p.category === category).length
+            
+            return (
+              <motion.button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className="group relative px-8 py-4 rounded-2xl font-medium transition-all duration-300 border-2"
+                style={{
+                  background: isActive ? currentTheme.effects.gradient : currentTheme.colors.surface,
+                  borderColor: isActive ? 'transparent' : currentTheme.colors.border + '40',
+                  color: isActive ? '#ffffff' : currentTheme.colors.text,
+                  boxShadow: isActive ? currentTheme.effects.shadow : 'none'
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: `0 10px 25px ${currentTheme.colors.primary}30`
+                }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  <Filter size={18} />
+                  {category}
+                  <span className="text-xs px-2 py-1 rounded-full bg-white/20">
+                    {projectCount}
+                  </span>
+                </span>
+                
+                {/* Hover effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ 
+                    background: `linear-gradient(45deg, ${currentTheme.colors.primary}20, ${currentTheme.colors.secondary}20)`
+                  }}
+                />
+              </motion.button>
+            )
+          })}
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Interactive Projects Grid */}
         <motion.div 
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           layout
         >
           {filteredProjects.map((project, index) => (
-            <motion.div
+            <HolographicCard
               key={project.id}
-              className="glass rounded-xl overflow-hidden hover-lift group cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onClick={() => setSelectedProject(project)}
-              layout
+              className="cursor-pointer project-card"
+              intensity={0.5}
             >
+              <motion.div
+                data-project-card
+                className="rounded-2xl overflow-hidden group h-full border-2 transition-all duration-300 relative project-card interactive-element"
+                style={{
+                  background: currentTheme.colors.surface,
+                  borderColor: hoveredProject === project.id ? currentTheme.colors.primary : currentTheme.colors.border + '30',
+                  boxShadow: hoveredProject === project.id ? currentTheme.effects.shadow : 'none'
+                }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 120,
+                  damping: 15
+                }}
+                onClick={() => setSelectedProject(project)}
+                onHoverStart={() => setHoveredProject(project.id)}
+                onHoverEnd={() => setHoveredProject(null)}
+                whileHover={{ 
+                  y: -8
+                }}
+                whileTap={{ scale: 0.99 }}
+                layout
+              >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-dark-200">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
+              <div className="relative h-48 overflow-hidden bg-dark-200 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none" />
                 {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
-                    className={`w-full h-full group-hover:scale-110 transition-transform duration-300 ${
+                    className={`w-full h-full transition-transform duration-300 ${
                       // Mobile screenshots - fit and center with dark background
                       project.category === 'Mobile' || project.type.includes('iOS') || project.type.includes('React Native') || project.image?.includes('mobile')
                         ? 'object-contain bg-dark-300' 
@@ -350,15 +504,33 @@ export default function Projects() {
                   />
                 ) : null}
                 {/* Fallback icon - always visible as background */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <project.icon size={48} className="text-cyber-blue opacity-30" />
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <project.icon 
+                    size={48} 
+                    style={{ color: currentTheme.colors.primary }}
+                    className="opacity-30" 
+                  />
                 </div>
-                <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 items-end">
-                  <span className="px-3 py-1 bg-cyber-blue/20 backdrop-blur-sm rounded-full text-xs font-medium text-cyber-blue border border-cyber-blue/30">
+                <div className="absolute top-4 right-4 z-20 flex flex-col gap-2 items-end pointer-events-none select-none">
+                  <span 
+                    className="px-3 py-1 backdrop-blur-sm rounded-full text-xs font-medium border"
+                    style={{
+                      background: currentTheme.colors.primary + '20',
+                      color: currentTheme.colors.primary,
+                      borderColor: currentTheme.colors.primary + '30'
+                    }}
+                  >
                     {project.type}
                   </span>
                   {project.images && project.images.length > 1 && (
-                    <span className="px-2 py-1 bg-cyber-purple/20 backdrop-blur-sm rounded-full text-xs font-medium text-cyber-purple border border-cyber-purple/30">
+                    <span 
+                      className="px-2 py-1 backdrop-blur-sm rounded-full text-xs font-medium border"
+                      style={{
+                        background: currentTheme.colors.secondary + '20',
+                        color: currentTheme.colors.secondary,
+                        borderColor: currentTheme.colors.secondary + '30'
+                      }}
+                    >
                       📷 {project.images.length}
                     </span>
                   )}
@@ -366,15 +538,28 @@ export default function Projects() {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
+              <div className="p-6 pointer-events-none">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyber-blue transition-colors">
+                  <h3 
+                    className="text-xl font-bold transition-colors group-hover:scale-105 duration-300"
+                    style={{ 
+                      color: hoveredProject === project.id ? currentTheme.colors.primary : currentTheme.colors.text
+                    }}
+                  >
                     {project.title}
                   </h3>
-                  <span className="text-xs text-white/50 font-mono">{project.year}</span>
+                  <span 
+                    className="text-xs font-mono"
+                    style={{ color: currentTheme.colors.text + '80' }}
+                  >
+                    {project.year}
+                  </span>
                 </div>
 
-                <p className="text-white/70 text-sm mb-4 line-clamp-3">
+                <p 
+                  className="text-sm mb-4 line-clamp-3"
+                  style={{ color: currentTheme.colors.text + 'CC' }}
+                >
                   {project.description}
                 </p>
 
@@ -383,13 +568,24 @@ export default function Projects() {
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-dark-200 rounded text-xs text-cyber-blue font-medium"
+                      className="px-2 py-1 rounded text-xs font-medium"
+                      style={{
+                        background: currentTheme.colors.surface,
+                        color: currentTheme.colors.primary,
+                        border: `1px solid ${currentTheme.colors.primary}30`
+                      }}
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-dark-200 rounded text-xs text-white/50 font-medium">
+                    <span 
+                      className="px-2 py-1 rounded text-xs font-medium"
+                      style={{
+                        background: currentTheme.colors.surface,
+                        color: currentTheme.colors.text + '80'
+                      }}
+                    >
                       +{project.technologies.length - 3}
                     </span>
                   )}
@@ -401,8 +597,14 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white/70 hover:text-cyber-blue transition-colors text-sm font-medium"
-                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-2 text-sm font-medium transition-colors pointer-events-auto"
+                    style={{ 
+                      color: currentTheme.colors.text + 'CC'
+                    }}
+                    whileHover={{ 
+                      x: 5,
+                      color: currentTheme.colors.primary
+                    }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <Github size={16} />
@@ -410,7 +612,8 @@ export default function Projects() {
                   </motion.a>
                 </div>
               </div>
-            </motion.div>
+              </motion.div>
+            </HolographicCard>
           ))}
         </motion.div>
 
@@ -607,8 +810,8 @@ export default function Projects() {
         >
           {[
             { number: '10', label: 'Projects Completed' },
-            { number: '100+', label: 'Screenshots' },
-            { number: '5', label: 'Categories Covered' },
+            { number: '8', label: 'Technologies' },
+            { number: '4', label: 'Platforms' },
             { number: '100%', label: 'Open Source' }
           ].map((stat, index) => (
             <motion.div
