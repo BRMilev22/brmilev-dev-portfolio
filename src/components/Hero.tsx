@@ -235,17 +235,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* SEO H1 - Static for crawlers */}
-        <h1 style={{ 
-          position: 'absolute', 
-          left: '-9999px', 
-          top: '0',
-          fontSize: '16px',
-          color: 'white'
-        }}>
-          Boris Milev - Full-Stack Developer & Software Engineer from Bulgaria
-        </h1>
-
         {/* Interactive Name & Title */}
         <motion.div
           className="space-y-8 mb-16"
@@ -253,7 +242,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <motion.div 
+          <motion.h1 
             className="text-6xl md:text-8xl font-bold leading-tight flex flex-col items-center"
             style={{ 
               fontFamily: currentTheme.typography.fontFamily,
@@ -284,7 +273,7 @@ export default function Hero() {
             >
               BORIS MILEV
             </motion.span>
-          </motion.div>
+          </motion.h1>
           
           {/* Dynamic Role Display */}
           <motion.div 
@@ -348,7 +337,8 @@ export default function Hero() {
               I believe in writing clean, maintainable code and delivering user-centered solutions that solve 
               real-world problems. Whether it&apos;s building custom C++ APIs with Crow framework, creating 
               SwiftUI interfaces, or developing responsive web applications with Tailwind CSS, I bring creativity 
-              and technical expertise to every project.
+              and technical expertise to every project. Explore my <a href="#tech" className="text-cyan-400 hover:underline">technology stack</a> and 
+              <a href="#projects" className="text-cyan-400 hover:underline ml-1">project portfolio</a> to learn more.
             </p>
           </motion.div>
         </motion.div>

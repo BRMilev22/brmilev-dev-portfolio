@@ -46,43 +46,48 @@ function ThemedContent() {
       {currentTheme.layout.backgroundPattern === 'matrix' && <MatrixRain />}
       <ThemeSwitcher />
       
-      {/* SEO Content - Visible but minimal styling */}
-      <div className="seo-content">
-        <h1 className="seo-h1">Boris Milev - Full-Stack Developer & Software Engineer</h1>
-        <div className="seo-description">
-          <p>Welcome to the portfolio of Boris Milev, a passionate full-stack developer and software engineer from Bulgaria. I am currently studying at the Vocational School for Computer Programming and Innovation (VSCPI) in Burgas, Bulgaria.</p>
+      {/* SEO Content - Unique, valuable content */}
+      <div className="seo-content" style={{ 
+        position: 'absolute', 
+        left: '-9999px', 
+        top: '0',
+        width: '100%',
+        fontSize: '16px'
+      }}>
+        <h1>Boris Milev - Software Engineer Portfolio</h1>
+        <p>Experienced software engineer specializing in cross-platform development, database design, and API architecture. Building scalable solutions for web and mobile platforms.</p>
+        
+        <h2>Development Expertise</h2>
+        <p>Proven track record in delivering production-ready applications. Expertise in agile development methodologies, version control with Git, and deployment strategies using modern DevOps practices.</p>
+        
+        <h3>Industry Experience</h3>
+        <p>Focused on creating enterprise-level solutions with emphasis on performance optimization, security best practices, and maintainable code architecture. Specialized in microservices and RESTful API development.</p>
+        
+        <nav>
+          <h4>Portfolio Sections</h4>
+          <ul>
+            <li><a href="#home">Homepage - Developer Introduction</a></li>
+            <li><a href="#about">About Boris Milev - Background & Education</a></li>
+            <li><a href="#tech">Technology Stack - Programming Skills</a></li>
+            <li><a href="#projects">Software Projects - Portfolio Gallery</a></li>
+            <li><a href="#contact">Contact & Hiring Information</a></li>
+          </ul>
           
-          <h2>About Boris Milev - Full-Stack Developer</h2>
-          <p>I specialize in creating innovative mobile and web applications using modern technologies including Swift, React Native, Next.js, TypeScript, JavaScript, Python, C++, and Node.js. My expertise spans iOS development, web development, and full-stack solutions with custom APIs.</p>
+          <h4>Featured Project Categories</h4>
+          <ul>
+            <li><a href="#projects">iOS Applications - Swift Development</a></li>
+            <li><a href="#projects">Web Applications - React & Next.js</a></li>
+            <li><a href="#projects">Mobile Apps - React Native</a></li>
+            <li><a href="#projects">Backend APIs - Node.js & C++</a></li>
+          </ul>
           
-          <h3>Technical Skills and Expertise</h3>
-          <p>My technical skills include Swift iOS development, React Native cross-platform apps, Next.js web applications, custom Node.js APIs, C++ backend development with Crow framework, Python scripting, TypeScript development, and MySQL database design. I have experience with Firebase, Supabase, and various modern development tools.</p>
-          
-          <h3>Software Development Projects Portfolio</h3>
-          <p>I have completed over 10 major projects including DreamWeaver (AI-powered story generation iOS app), BookBite (restaurant reservation system with C++ API), MoodyChat (emotion-responsive chat interface), ChemEco (environmental reporting system), Abandoned Explorer (location discovery app), and many more innovative solutions.</p>
-          
-          <h3>Professional Experience and Services</h3>
-          <p>As a student developer, I focus on creating user-centered solutions that solve real-world problems. I believe in writing clean, maintainable code and delivering high-quality applications. I am available for freelance work, internships, and collaboration opportunities.</p>
-          
-          <nav className="seo-nav">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="#home">Home - Boris Milev Portfolio</a></li>
-              <li><a href="#about">About Me - Full-Stack Developer</a></li>
-              <li><a href="#tech">Technology Stack - Skills</a></li>
-              <li><a href="#projects">Projects Portfolio - Software Development</a></li>
-              <li><a href="#contact">Contact Information - Hire Me</a></li>
-            </ul>
-            
-            <h4>External Resources</h4>
-            <ul>
-              <li><a href="https://github.com/BRMilev22" target="_blank" rel="noopener noreferrer">GitHub Profile - Boris Milev</a></li>
-              <li><a href="https://www.linkedin.com/in/boris-milev-792546304/" target="_blank" rel="noopener noreferrer">LinkedIn Profile - Boris Milev</a></li>
-              <li><a href="mailto:zvarazoku9@icloud.com">Email Contact - Software Developer</a></li>
-              <li><a href="/sitemap.xml" target="_blank" rel="noopener noreferrer">Site Map</a></li>
-            </ul>
-          </nav>
-        </div>
+          <h4>Professional Links</h4>
+          <ul>
+            <li><a href="https://github.com/BRMilev22" target="_blank" rel="noopener noreferrer">GitHub - Open Source Projects</a></li>
+            <li><a href="https://www.linkedin.com/in/boris-milev-792546304/" target="_blank" rel="noopener noreferrer">LinkedIn - Professional Profile</a></li>
+            <li><a href="mailto:zvarazoku9@icloud.com">Email - Direct Contact</a></li>
+          </ul>
+        </nav>
       </div>
 
       <div className="relative z-10" style={{ 

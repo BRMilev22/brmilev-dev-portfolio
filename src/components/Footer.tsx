@@ -124,6 +124,7 @@ export default function Footer() {
               >
                 GitHub Profile
               </motion.a>
+              
             </nav>
           </motion.div>
 
@@ -138,6 +139,18 @@ export default function Footer() {
             <p className="text-white/70 mb-6">
               Follow me on social media or send me an email to start a conversation.
             </p>
+            
+            {/* Additional Internal Links Section */}
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-white mb-3">Quick Navigation</h4>
+              <div className="space-y-2 text-sm">
+                <a href="#home" className="block text-white/60 hover:text-cyber-blue transition-colors">🏠 Portfolio Home</a>
+                <a href="#about" className="block text-white/60 hover:text-cyber-blue transition-colors">👨‍💻 Developer Profile</a>
+                <a href="#tech" className="block text-white/60 hover:text-cyber-blue transition-colors">⚡ Technical Skills</a>
+                <a href="#projects" className="block text-white/60 hover:text-cyber-blue transition-colors">🚀 Project Gallery</a>
+                <a href="#contact" className="block text-white/60 hover:text-cyber-blue transition-colors">📧 Get In Touch</a>
+              </div>
+            </div>
             
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (

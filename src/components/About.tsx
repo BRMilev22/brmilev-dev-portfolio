@@ -73,7 +73,7 @@ export default function About() {
                 When I&apos;m not coding, I&apos;m constantly learning new technologies, contributing to open-source projects, 
                 and exploring the latest trends in software development. I believe in the power of 
                 <span className="text-cyber-green font-semibold"> continuous learning</span> and staying ahead of the curve 
-                in this rapidly evolving field.
+                in this rapidly evolving field. Check out my <a href="#projects" className="text-cyber-blue hover:underline">latest projects</a> to see these technologies in action.
               </p>
             </div>
 
