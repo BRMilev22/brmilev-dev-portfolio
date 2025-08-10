@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     default: 'Boris Milev - Full-Stack Developer & Software Engineer',
     template: '%s | Boris Milev Portfolio'
   },
-  description: 'Full-Stack Developer & iOS specialist from Bulgaria. 10+ projects in Swift, React Native, Next.js, C++, Python & Node.js. VSCPI student creating innovative mobile & web solutions.',
+  description: 'Boris Milev - Full-Stack Developer from Bulgaria. 10+ projects in Swift, React Native, Next.js, C++, Python, Node.js. VSCPI student.',
   keywords: [
     'Boris Milev',
     'Full-Stack Developer', 
@@ -121,7 +121,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://brmilev-dev-portfolio.vercel.app',
     languages: {
-      'en-US': 'https://brmilev-dev-portfolio.vercel.app',
+      'en': 'https://brmilev-dev-portfolio.vercel.app',
+      'x-default': 'https://brmilev-dev-portfolio.vercel.app',
     },
   },
   icons: {

@@ -12,7 +12,7 @@
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://choosealicense.com/licenses/mit/)
 
-[**🌐 Live Demo**](https://brmilev-dev-portfolio.vercel.app/) • [**📧 Contact**](mailto:zvarazoku9@icloud.com) • [**💼 LinkedIn**](https://www.linkedin.com/in/boris-milev-792546304/)
+[**🌐 Live Demo**](https://borismilevdev.com) • [**📧 Contact**](mailto:zvarazoku9@icloud.com) • [**💼 LinkedIn**](https://www.linkedin.com/in/boris-milev-792546304/)
 
 </div>
 

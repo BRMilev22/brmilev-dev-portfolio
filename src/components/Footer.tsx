@@ -81,18 +81,49 @@ export default function Footer() {
             <h3 className="text-xl font-semibold text-white mb-6">Quick Links</h3>
             <nav className="space-y-3">
               {quickLinks.map((link, index) => (
-                <motion.button
+                <motion.a
                   key={link.name}
-                  onClick={() => scrollToSection(link.href)}
+                  href={link.href}
                   className="block text-white/70 hover:text-cyber-blue transition-colors duration-300"
                   whileHover={{ x: 5 }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToSection(link.href)
+                  }}
                 >
                   {link.name}
-                </motion.button>
+                </motion.a>
               ))}
+              
+              {/* Additional links */}
+              <motion.a
+                href="/sitemap.xml"
+                className="block text-white/70 hover:text-cyber-blue transition-colors duration-300 text-sm"
+                whileHover={{ x: 5 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sitemap
+              </motion.a>
+              
+              <motion.a
+                href="https://github.com/BRMilev22"
+                className="block text-white/70 hover:text-cyber-blue transition-colors duration-300 text-sm"
+                whileHover={{ x: 5 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub Profile
+              </motion.a>
             </nav>
           </motion.div>
 
